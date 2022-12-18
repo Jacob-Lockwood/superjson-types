@@ -8,22 +8,7 @@ on:
     types: [created]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: actions/checkout
-        uses: actions/checkout@v3
-      - name: actions/setup-node
-        uses: actions/setup-node@v3
-        with:
-          node-version: "16.15.1"
-      - name: npm install
-        uses: jaid/action-npm-install@v1.2.1
-        with:
-          packageManager: "pnpm"
-
   publish-npm:
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
