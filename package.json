@@ -1,0 +1,23 @@
+{
+  "name": "superjson-types",
+  "version": "0.0.1",
+  "description": "Accurate serialization and deserialization types for SuperJSON.",
+  "main": "",
+  "types": "./index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^18.11.17"
+  },
+  "devDependencies": {
+    "superjson": "^1.12.0",
+    "typescript": "^4.9.4"
+  },
+  "peerDependencies": {
+    "superjson": "^1.12.0"
+  }
+}
