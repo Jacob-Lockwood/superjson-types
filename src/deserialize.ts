@@ -17,14 +17,14 @@ export type DeserializeProp<As, T extends any> = As extends "set"
   ? RegExp
   : T;
 
-export type Deserialize<
-  Serialized extends SuperJSONResult<any>,
-  json = Serialized["json"],
-  meta = Serialized["meta"]["values"]
-> = {
-  [K in Exclude<keyof json, keyof meta>]: json[K];
+type J<T extends SuperJSONResult<any>> = T["json"];
+type M<T extends SuperJSONResult<any>> = T["meta"]["values"];
+
+export type Deserialize<Serialized extends SuperJSONResult<any>> = {
+  [K in Exclude<keyof J<Serialized>, keyof M<Serialized>>]: J<Serialized>[K];
 } & {
-  [K in Extract<keyof meta, keyof json>]: 0 extends keyof meta[K]
-    ? DeserializeProp<meta[K][0], json[K]>
-    : never;
+  [K in Extract<keyof M<Serialized>, keyof J<Serialized>>]: DeserializeProp<
+    M<Serialized>[K][0],
+    J<Serialized>[K]
+  >;
 };
