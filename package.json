@@ -1,9 +1,8 @@
 {
   "name": "superjson-types",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Accurate serialization and deserialization types for SuperJSON.",
-  "main": "",
-  "types": "./index.d.ts",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
