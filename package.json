@@ -1,6 +1,6 @@
 {
   "name": "superjson-types",
-  "version": "0.1.0",
+  "version": "0.0.2",
   "description": "Accurate serialization and deserialization types for SuperJSON.",
   "main": "dist/index.js",
   "type": "module",
