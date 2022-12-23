@@ -8,7 +8,7 @@ on:
     types: [created]
 
 jobs:
-  install:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: actions/checkout
@@ -23,7 +23,7 @@ jobs:
           packageManager: "pnpm"
 
   publish-npm:
-    needs: install
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -34,4 +34,3 @@ jobs:
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
-          

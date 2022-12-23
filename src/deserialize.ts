@@ -1,11 +1,11 @@
-import { SuperJSONResult } from "./serialize";
+import { AnySuperJSONResult } from "./serialize";
 
 export type DeserializeSet<T> = T extends (infer U)[] ? Set<U> : never;
 export type DeserializeMap<T> = T extends [infer U, infer V][]
   ? Map<U, V>
   : never;
 
-export type DeserializeProp<As, T extends any> = As extends "set"
+export type DeserializeProp<As, T> = As extends "set"
   ? DeserializeSet<T>
   : As extends "map"
   ? DeserializeMap<T>
@@ -15,12 +15,14 @@ export type DeserializeProp<As, T extends any> = As extends "set"
   ? URL
   : As extends "regexp"
   ? RegExp
+  : As extends "bigint"
+  ? bigint
   : T;
 
-type J<T extends SuperJSONResult<any>> = T["json"];
-type M<T extends SuperJSONResult<any>> = T["meta"]["values"];
+type J<T extends AnySuperJSONResult> = T["json"];
+type M<T extends AnySuperJSONResult> = T["meta"]["values"];
 
-export type Deserialize<Serialized extends SuperJSONResult<any>> = {
+export type Deserialize<Serialized extends AnySuperJSONResult> = {
   [K in Exclude<keyof J<Serialized>, keyof M<Serialized>>]: J<Serialized>[K];
 } & {
   [K in Extract<keyof M<Serialized>, keyof J<Serialized>>]: DeserializeProp<

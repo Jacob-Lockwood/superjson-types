@@ -18,7 +18,7 @@ export interface SpecialValuesMap {
   regexp: RegExp;
   set: Set<AcceptedValue>;
   map: Map<string, AcceptedValue>;
-  bigint: BigInt;
+  bigint: bigint;
   URL: URL;
 }
 export type SpecialValue = SpecialValuesMap[keyof SpecialValuesMap];

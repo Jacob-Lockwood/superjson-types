@@ -38,3 +38,4 @@ export type SuperJSONResult<T extends AcceptedValue> = {
   json: Json<T>;
   meta: Meta<T>;
 };
+export type AnySuperJSONResult = SuperJSONResult<never>;
