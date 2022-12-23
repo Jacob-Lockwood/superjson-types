@@ -8,13 +8,16 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf dist && tsc",
     "lint": "eslint src",
-    "prepublish": "pnpm lint && pnpm build"
+    "format": "prettier --write src",
+    "prepublish": "pnpm format && pnpm lint && pnpm build"
   },
   "files": [
     "dist"
   ],
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "superjson"
+  ],
+  "author": "jacobofbrookklyn",
   "license": "ISC",
   "dependencies": {
     "superjson": "^1.12.1"
@@ -24,6 +27,7 @@
     "@typescript-eslint/eslint-plugin": "^5.47.0",
     "@typescript-eslint/parser": "^5.47.0",
     "eslint": "^8.30.0",
+    "prettier": "^2.8.1",
     "typescript": "^4.9.4"
   }
 }

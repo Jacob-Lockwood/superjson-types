@@ -7,17 +7,16 @@ Note: This package is unstable so I will change whatever I feel like whenever I 
 ```
 npm install superjson-types
 ```
+
 ```typescript
-import { serialize, deserialize } from "superjson-types"
-const serialized = serialize(
-  { a: new Date(), b: "hi", c: new Set([1, 2, 3]) }
-)
+import { serialize, deserialize } from "superjson-types";
+const serialized = serialize({ a: new Date(), b: "hi", c: new Set([1, 2, 3]) });
 /* typeof serialized: {
   json: { a: string, b: string, c: number[] },
   meta: { a: ["Date"], c: ["set"] }
 } */
-const deserialized = deserialize(serialized)
+const deserialized = deserialize(serialized);
 // typeof deserialized: { a: Date, b: string, c: Set<number> }
 ```
 
-[SuperJSON]: https://github.com/blitz-js/superjson
+[superjson]: https://github.com/blitz-js/superjson

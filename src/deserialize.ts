@@ -1,9 +1,7 @@
 import { AnySuperJSONResult } from "./serialize";
 
 export type DeserializeSet<T> = T extends (infer U)[] ? Set<U> : never;
-export type DeserializeMap<T> = T extends [infer U, infer V][]
-  ? Map<U, V>
-  : never;
+export type DeserializeMap<T> = T extends [infer U, infer V][] ? Map<U, V> : never;
 
 export type DeserializeProp<As, T> = As extends "set"
   ? DeserializeSet<T>

@@ -4,10 +4,10 @@ import type { AnySuperJSONResult, SuperJSONResult } from "./serialize";
 import * as superjson from "superjson";
 
 const serialize = superjson.serialize as <T extends AcceptedValue>(
-  obj: T
+  obj: T,
 ) => SuperJSONResult<T>;
 const deserialize = superjson.deserialize as <T extends AnySuperJSONResult>(
-  payload: T
+  payload: T,
 ) => Deserialize<T>;
 const { stringify, parse } = superjson;
 
